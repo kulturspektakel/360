@@ -1,6 +1,15 @@
 declare module "pannellum-react" {
-  declare const Pannellum: React.PureComponent<{
-    children?: any;
+  interface HotspotProps {
+    id: string;
+    type: "info";
+    pitch: number;
+    yaw: number;
+    text: string;
+    URL: string;
+  }
+
+  let Pannellum: React.ComponentClass<{
+    children?: React.ElementType<HotspotProps>;
     id?: string;
     width?: string;
     height?: string;
@@ -50,13 +59,6 @@ declare module "pannellum-react" {
     cssClass?: string;
     onRender?: func;
   }> & {
-    Hotspot: React.PureComponent<{
-      id: string;
-      type: "info";
-      pitch: number;
-      yaw: number;
-      text: string;
-      URL: string;
-    }>;
+    Hotspot: React.ComponentClass<HotspotProps>;
   };
 }
